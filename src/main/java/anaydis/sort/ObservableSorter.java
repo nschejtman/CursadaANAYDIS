@@ -7,5 +7,5 @@ package anaydis.sort;
  */
 public interface ObservableSorter {
     void addSorterListener(SorterListener listener);
-    void removeListener(SorterListener listener);
+    void removeSorterListener(SorterListener listener);
 }

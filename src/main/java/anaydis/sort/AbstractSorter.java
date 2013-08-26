@@ -7,6 +7,7 @@ import java.util.List;
 
 public class AbstractSorter implements Sorter, ObservableSorter {
     SorterListener listener;
+
     @Override
     public <T> void sort(@NotNull Comparator<T> comparator, @NotNull List<T> list) {
     }
@@ -14,7 +15,7 @@ public class AbstractSorter implements Sorter, ObservableSorter {
     @NotNull
     @Override
     public SorterType getType() {
-        return null; //IMPLEMENTATION
+        return null;
     }
 
     @Override
@@ -23,13 +24,23 @@ public class AbstractSorter implements Sorter, ObservableSorter {
     }
 
     @Override
-    public void removeListener(SorterListener listener) {
+    public void removeSorterListener(SorterListener listener) {
         listener = null;
     }
 
-    protected <T>void swap(Comparator<T> c, List<T> list, int i, int j){}
+    protected <T>void swap(List<T> list, int i, int j){
+        T t = list.get(i);
+        list.set(i,list.get(j));
+        list.set(j,t);
+    }
+
     protected <T>boolean grater(Comparator<T> c, List<T> list, int i, int j){
-        return false;
+        return c.compare(list.get(i), list.get(j))>0;
+
+    }
+
+    protected <T>void compExchange(Comparator<T> c, List<T> list, int i, int j){
+        if(grater(c, list, i, j)) swap(list, i ,j);
     }
 
 
