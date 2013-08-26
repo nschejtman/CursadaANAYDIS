@@ -9,7 +9,7 @@ public class AbstractSorter implements Sorter, ObservableSorter {
     SorterListener listener;
 
     @Override
-    public <T> void sort(@NotNull Comparator<T> comparator, @NotNull List<T> list) {
+    public <T> void sort(@NotNull Comparator<T> c, @NotNull List<T> list) {
     }
 
     @NotNull
@@ -28,21 +28,20 @@ public class AbstractSorter implements Sorter, ObservableSorter {
         listener = null;
     }
 
-    protected <T>void swap(List<T> list, int i, int j){
+    protected <T> void swap(List<T> list, int i, int j) {
         T t = list.get(i);
-        list.set(i,list.get(j));
-        list.set(j,t);
+        list.set(i, list.get(j));
+        list.set(j, t);
     }
 
-    protected <T>boolean grater(Comparator<T> c, List<T> list, int i, int j){
-        return c.compare(list.get(i), list.get(j))>0;
+    protected <T> boolean greater(Comparator<T> c, List<T> list, int i, int j) {
+        return c.compare(list.get(i), list.get(j)) > 0;
 
     }
 
-    protected <T>void compExchange(Comparator<T> c, List<T> list, int i, int j){
-        if(grater(c, list, i, j)) swap(list, i ,j);
+    protected <T> void compExchange(Comparator<T> c, List<T> list, int i, int j) {
+        if (greater(c, list, i, j)) swap(list, i, j);
     }
-
 
 
 }
