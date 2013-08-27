@@ -9,7 +9,8 @@ import java.util.List;
  * Time: 16:47
  */
 public class InsertionSorter extends AbstractSorter {
-    public <T> void sort(Comparator<T> c, List<T> list) {
+    public <T> void sort(Comparator<T> c, List<T> list, Timer timer) {
+        timer.start();
         int N = list.size();
         for (int i = 0; i < N - 1; i++) {
             if (greater(c, list, i, i + 1)) {
@@ -19,6 +20,7 @@ public class InsertionSorter extends AbstractSorter {
                 }
             }
         }
+        timer.end();
     }
     public SorterType getType() {
         return SorterType.INSERTION;
