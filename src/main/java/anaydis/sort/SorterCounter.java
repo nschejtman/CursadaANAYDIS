@@ -6,16 +6,28 @@ package anaydis.sort;
  * Time: 16:19
  */
 public class SorterCounter implements SorterListener {
-    private int comparations;
+    private int comps;
     private int swaps;
 
     @Override
     public void grater(int i, int j) {
-       comparations++;
+       comps++;
     }
 
     @Override
     public void swap(int i, int j) {
         swaps++;
+    }
+
+    public void reset(){
+        comps = swaps = 0;
+    }
+
+    public int getComps() {
+        return comps;
+    }
+
+    public int getSwaps() {
+        return swaps;
     }
 }
