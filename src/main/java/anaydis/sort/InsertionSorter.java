@@ -20,4 +20,7 @@ public class InsertionSorter extends AbstractSorter {
             }
         }
     }
+    public SorterType getType() {
+        return SorterType.INSERTION;
+    }
 }

@@ -18,4 +18,7 @@ public class BubbleSorter extends AbstractSorter {
         }
     }
 
+    public SorterType getType() {
+        return SorterType.BUBBLE;
+    }
 }

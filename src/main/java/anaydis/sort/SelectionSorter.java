@@ -21,4 +21,8 @@ public class SelectionSorter extends AbstractSorter {
         }
 
     }
+
+    public SorterType getType() {
+        return SorterType.SELECTION;
+    }
 }
