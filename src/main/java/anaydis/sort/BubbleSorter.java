@@ -9,15 +9,13 @@ import java.util.List;
  * Time: 16:46
  */
 public class BubbleSorter extends AbstractSorter {
-    public <T> void sort(Comparator<T> c, List<T> list, Timer timer) {
-        timer.start();
+    public <T> void sort(Comparator<T> c, List<T> list) {
         int N = list.size();
         for (int i = N - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
                 compExchange(c, list, j, j + 1);
             }
         }
-        timer.end();
     }
 
     public SorterType getType() {

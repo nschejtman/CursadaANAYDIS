@@ -1,5 +1,7 @@
 package anaydis.sort;
 
+import anaydis.sort.tester.Timer;
+
 import java.util.Comparator;
 import java.util.List;
 
@@ -9,8 +11,7 @@ import java.util.List;
  * Time: 16:47
  */
 public class SelectionSorter extends AbstractSorter {
-    public <T> void sort(Comparator<T> c, List<T> list, Timer timer) {
-        timer.start();
+    public <T> void sort(Comparator<T> c, List<T> list) {
         int N = list.size();
         for (int i = 0; i < N - 1; i++) {
             int min = i;
@@ -19,7 +20,6 @@ public class SelectionSorter extends AbstractSorter {
             }
             swap(list, i, min);
         }
-        timer.end();
     }
 
     public SorterType getType() {

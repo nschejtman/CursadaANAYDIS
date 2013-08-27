@@ -1,4 +1,4 @@
-package anaydis.sort;
+package anaydis.sort.tester;
 
 import anaydis.sort.data.DataSetGenerator;
 import org.jetbrains.annotations.NotNull;
@@ -13,6 +13,16 @@ import java.util.Random;
  * Time: 11:34
  */
 public class IntegerDataGenerator implements DataSetGenerator<Integer> {
+
+    public class IntegerComparator implements Comparator<Integer>{
+        @Override
+        public int compare(Integer o1, Integer o2) {
+            if(o1>o2) return 1;
+            else if(o1==o2) return 0;
+            else return -1;
+        }
+    }
+
     private List<Integer> list;
 
     public IntegerDataGenerator(List<Integer> list){
@@ -24,7 +34,7 @@ public class IntegerDataGenerator implements DataSetGenerator<Integer> {
     public List<Integer> createAscending(int length) {
         list.clear();
         for(int i=0; i<length; i++){
-            list.add(i,i);
+            list.add(i);
         }
         return list;
     }
@@ -34,7 +44,7 @@ public class IntegerDataGenerator implements DataSetGenerator<Integer> {
     public List<Integer> createDescending(int length) {
         list.clear();
         for(int i=0; i<length; i++){
-            list.add(i,length-i);
+            list.add(length-i);
         }
         return list;
     }
@@ -45,7 +55,7 @@ public class IntegerDataGenerator implements DataSetGenerator<Integer> {
         list.clear();
         Random r = new Random();
         for(int i = 0; i<length; i++){
-            list.add(i, r.nextInt(length));
+            list.add(r.nextInt(length));
         }
         return list;
     }

@@ -1,4 +1,4 @@
-package anaydis.sort;
+package anaydis.sort.tester;
 
 /**
  * User: nschejtman
@@ -8,6 +8,10 @@ package anaydis.sort;
 public class Timer {
     private long start;
     private long end;
+
+    public Timer() {
+        start = end = 0;
+    }
 
     public void start(){
         start = System.currentTimeMillis();
@@ -24,4 +28,5 @@ public class Timer {
     public void reset(){
         start = end = 0;
     }
+
 }
