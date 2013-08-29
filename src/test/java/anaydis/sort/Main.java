@@ -16,7 +16,7 @@ public class Main {
         InsertionSorter is = new InsertionSorter();
         SelectionSorter ss = new SelectionSorter();
 
-        int n = 50000;
+        int n = 10000;
         int min = n;
         int max = n;
 
