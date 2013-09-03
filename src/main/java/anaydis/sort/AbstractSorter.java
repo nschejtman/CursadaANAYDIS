@@ -15,11 +15,6 @@ public abstract class AbstractSorter implements Sorter, ObservableSorter {
     }
 
     @Override
-    public <T> void sort(@NotNull Comparator<T> c, @NotNull List<T> list) {
-    }
-
-
-    @Override
     public void addSorterListener(SorterListener listener) {
         listeners.add(listener);
     }
