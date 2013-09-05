@@ -18,20 +18,19 @@ public class HSorter extends AbstractSorter{
         return SorterType.H;
     }
 
-    public <T> void sort(Comparator<T> c, List<T> list){
+    public <T> void sort(@NotNull Comparator<T> c, @NotNull List<T> list){
         sort(c, list, 1);
     }
 
-    public <T>void sort(Comparator<T>c, List<T> list, int h){
+    public <T>void sort(@NotNull Comparator<T>c, @NotNull List<T> list, int h){
         int N = list.size();
-        for (int i = 0; i < N - 1; i+=h) {
+        for (int i = 0; i < N - h; i+=h) {
             if (greater(c, list, i, i + h)) {
                 compExchange(c, list, i, i + h);
-                for (int j = i; j > 0; j=-h) {
+                for (int j = i; j > 0; j-=h) {
                     compExchange(c, list, j - h, j);
                 }
             }
         }
-
     }
 }

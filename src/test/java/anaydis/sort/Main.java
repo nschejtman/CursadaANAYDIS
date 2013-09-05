@@ -15,6 +15,7 @@ public class Main {
         BubbleSorter bs = new BubbleSorter();
         InsertionSorter is = new InsertionSorter();
         SelectionSorter ss = new SelectionSorter();
+        HSorter hs = new HSorter();
 
         int n = 10000;
         int min = n;
@@ -22,24 +23,9 @@ public class Main {
 
         for (int i = min; i <= max; i++) {
             System.out.println("Bubble Sorter, " + i + " elements");
-            System.out.println("Worst case = " + Tester.testWorst(bs, i));
-            System.out.println("Best case = " + Tester.testBest(bs, i));
+            System.out.println("Worst case = " + Tester.testWorst(hs, i));
+            System.out.println("Best case = " + Tester.testBest(hs, i));
         }
-
-        for (int i = min; i <= max; i++) {
-            System.out.println("Insertion Sorter, " + i + " elements");
-            System.out.println("Worst case = " + Tester.testWorst(is, i));
-            System.out.println("Best case = " + Tester.testBest(is, i));
-        }
-
-        for (int i = min; i <= max; i++) {
-            System.out.println("Selection Sorter, " + i + " elements");
-            System.out.println("Worst case = " + Tester.testWorst(ss, i));
-            System.out.println("Best case = " + Tester.testBest(ss, i));
-        }
-
-
-
 
 
     }
