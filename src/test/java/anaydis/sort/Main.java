@@ -12,20 +12,28 @@ import java.util.ArrayList;
  */
 public class Main {
     public static void main(String[] args) {
-        BubbleSorter bs = new BubbleSorter();
-        InsertionSorter is = new InsertionSorter();
-        SelectionSorter ss = new SelectionSorter();
-        HSorter hs = new HSorter();
+        AbstractSorter ts = new QuickSorter();
 
-        int n = 10000;
-        int min = n;
-        int max = n;
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        IntegerDataGenerator generator = new IntegerDataGenerator(list);
+        generator.createRandom(10);
 
-        for (int i = min; i <= max; i++) {
-            System.out.println("Bubble Sorter, " + i + " elements");
-            System.out.println("Worst case = " + Tester.testWorst(hs, i));
-            System.out.println("Best case = " + Tester.testBest(hs, i));
+        int i = 0;
+        while(i<list.size()){
+            System.out.println(list.get(i));
+            i++;
         }
+
+        ts.sort(generator.getComparator(), list);
+        System.out.println("------------------");
+
+        i = 0;
+        while(i<list.size()){
+            System.out.println(list.get(i));
+            i++;
+        }
+
+
 
 
     }

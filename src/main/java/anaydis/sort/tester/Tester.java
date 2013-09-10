@@ -10,6 +10,7 @@ import java.util.ArrayList;
  * Time: 13:40
  */
 public abstract class Tester {
+
     public static long testWorst(AbstractSorter sorter, int n) {
         //Set data
         ArrayList<Integer> list = new ArrayList<Integer>(n);
@@ -49,6 +50,10 @@ public abstract class Tester {
         timer.start();
         sorter.sort(generator.getComparator(), list);
         timer.end();
+
+
+
+        System.out.println();
         return timer.time();
     }
 
