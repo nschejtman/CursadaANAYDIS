@@ -4,6 +4,7 @@ import anaydis.sort.tester.IntegerDataGenerator;
 import anaydis.sort.tester.Tester;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * User: nschejtman
@@ -12,29 +13,28 @@ import java.util.ArrayList;
  */
 public class Main {
     public static void main(String[] args) {
-        AbstractSorter ts = new QuickSorter();
+        int[] sequence1 = new int[9];
 
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        IntegerDataGenerator generator = new IntegerDataGenerator(list);
-        generator.createRandom(10);
+        //Complete sequence1
+        sequence1[0] = 1;
+        sequence1[1] = 4;
+        sequence1[2] = 13;
+        sequence1[3] = 40;
+        sequence1[4] = 121;
+        sequence1[5] = 264;
+        sequence1[6] = 1093;
+        sequence1[7] = 3280;
+        sequence1[8] = 9841;
 
-        int i = 0;
-        while(i<list.size()){
-            System.out.println(list.get(i));
-            i++;
+        ShellSorter s = new ShellSorter();
+
+        for (int i = 10; i <= 10000000; i *= 10) {
+            System.out.println("For n=" + i + " -----------------------------------");
+            System.out.println("Ascending");
+            System.out.println(Tester.testAscending(s, i, sequence1));
+            System.out.println("Descending");
+            System.out.println(Tester.testDescending(s, i, sequence1));
         }
-
-        ts.sort(generator.getComparator(), list);
-        System.out.println("------------------");
-
-        i = 0;
-        while(i<list.size()){
-            System.out.println(list.get(i));
-            i++;
-        }
-
-
-
 
     }
 }
