@@ -25,16 +25,15 @@ public class QuickSorter extends AbstractSorter {
         return SorterType.QUICK;
     }
 
-    private <T> void sort(@NotNull Comparator<T> comparator, @NotNull List<T> list, int lo, int hi) {
+    protected <T> void sort(@NotNull Comparator<T> comparator, @NotNull List<T> list, int lo, int hi) {
         if (hi <= lo) return;
         int j = partition(comparator, list, lo, hi);
         sort(comparator, list, lo, j - 1);
         sort(comparator, list, j + 1, hi);
-
     }
 
 
-    private <T> int partition(@NotNull Comparator<T> comparator, @NotNull List<T> list, int lo, int hi) {
+    protected <T> int partition(@NotNull Comparator<T> comparator, @NotNull List<T> list, int lo, int hi) {
         int i = lo;
         int j = hi + 1;
         while (true) {
@@ -45,6 +44,5 @@ public class QuickSorter extends AbstractSorter {
         }
         swap(list, lo, j);
         return j;
-
     }
 }

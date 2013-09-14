@@ -13,28 +13,17 @@ import java.util.List;
  */
 public class Main {
     public static void main(String[] args) {
-        int[] sequence1 = new int[9];
+        SorterCounter quick = new SorterCounter();
+        SorterCounter cut = new SorterCounter();
 
-        //Complete sequence1
-        sequence1[0] = 1;
-        sequence1[1] = 4;
-        sequence1[2] = 13;
-        sequence1[3] = 40;
-        sequence1[4] = 121;
-        sequence1[5] = 264;
-        sequence1[6] = 1093;
-        sequence1[7] = 3280;
-        sequence1[8] = 9841;
+        InsertionSorter iS = new InsertionSorter();
+        iS.addSorterListener(cut);
 
-        ShellSorter s = new ShellSorter();
+        CutoffQuickSorter qS = new CutoffQuickSorter(iS);
+        qS.addSorterListener(quick);
 
-        for (int i = 10; i <= 10000000; i *= 10) {
-            System.out.println("For n=" + i + " -----------------------------------");
-            System.out.println("Ascending");
-            System.out.println(Tester.testAscending(s, i, sequence1));
-            System.out.println("Descending");
-            System.out.println(Tester.testDescending(s, i, sequence1));
-        }
-
+        Tester.print(qS, 10);
+        System.out.println(quick.getComps() + " Comps " + quick.getSwaps() + " Swaps");
+        System.out.println(cut.getComps() + " Comps " + cut.getSwaps() + " Swaps");
     }
 }
