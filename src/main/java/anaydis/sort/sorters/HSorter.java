@@ -1,4 +1,4 @@
-package anaydis.sort;
+package anaydis.sort.sorters;
 
 import anaydis.sort.AbstractSorter;
 import anaydis.sort.SorterType;

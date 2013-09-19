@@ -1,10 +1,6 @@
 package anaydis.sort;
 
-import anaydis.sort.tester.IntegerDataGenerator;
 import anaydis.sort.tester.Tester;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * User: nschejtman
