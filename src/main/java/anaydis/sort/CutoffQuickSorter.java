@@ -22,7 +22,7 @@ public class CutoffQuickSorter extends QuickSorter {
 
     @Override
     public <T> void sort(@NotNull Comparator<T> comparator, @NotNull List<T> list) {
-        sort(comparator, list, 0, list.size() - 1, 6);
+        sort(comparator, list, 0, list.size() - 1, 2);
     }
 
     @NotNull
@@ -32,11 +32,15 @@ public class CutoffQuickSorter extends QuickSorter {
     }
 
     protected <T> void sort(@NotNull Comparator<T> comparator, @NotNull List<T> list, int lo, int hi, int M) {
-        if (hi <= lo) return;
+        if(hi-lo < M){
+            cutoff.sort(comparator, list);
+            return;
+        }
+
         int j = partition(comparator, list, lo, hi);
-        while(j-1-lo> M) sort(comparator, list, lo, j - 1);
-        while(hi-j+1>M) sort(comparator, list, j + 1, hi);
-        cutoff.sort(comparator, list);
+        sort(comparator, list, lo, j - 1);
+        sort(comparator, list, j + 1, hi);
+
     }
 
 

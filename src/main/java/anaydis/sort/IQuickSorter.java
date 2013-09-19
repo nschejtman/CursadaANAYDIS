@@ -1,6 +1,6 @@
 package anaydis.sort;
 
-import anaydis.data_structures.Stack;
+
 import anaydis.sort.AbstractSorter;
 import anaydis.sort.SorterType;
 import org.jetbrains.annotations.NotNull;
@@ -17,7 +17,6 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public class IQuickSorter extends AbstractSorter {
-    Stack stack;
 
 
 

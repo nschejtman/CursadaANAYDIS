@@ -1,6 +1,9 @@
 package anaydis.sort;
 
+
 import anaydis.sort.tester.Tester;
+
+import java.util.Stack;
 
 /**
  * User: nschejtman
@@ -9,17 +12,18 @@ import anaydis.sort.tester.Tester;
  */
 public class Main {
     public static void main(String[] args) {
-        SorterCounter quick = new SorterCounter();
-        SorterCounter cut = new SorterCounter();
 
-        InsertionSorter iS = new InsertionSorter();
-        iS.addSorterListener(cut);
+        InsertionSorter is = new InsertionSorter();
+        AbstractSorter s = new CutoffQuickSorter(is);
 
-        CutoffQuickSorter qS = new CutoffQuickSorter(iS);
-        qS.addSorterListener(quick);
 
-        Tester.print(qS, 10);
-        System.out.println(quick.getComps() + " Comps " + quick.getSwaps() + " Swaps");
-        System.out.println(cut.getComps() + " Comps " + cut.getSwaps() + " Swaps");
+        for(int i = 100; i<=1000000; i=i*10){
+            System.out.println("n=" + i);
+            System.out.println("ascending=" + Tester.testAscending(s, i));
+            System.out.println("descending=" + Tester.testDescending(s, i));
+        }
+
     }
+
+
 }
