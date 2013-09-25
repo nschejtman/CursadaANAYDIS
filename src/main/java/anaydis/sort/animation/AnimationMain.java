@@ -10,5 +10,6 @@ package anaydis.sort.animation;
 public class AnimationMain {
     public static void main(String[] args) {
 
+
     }
 }
