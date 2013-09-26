@@ -1,5 +1,7 @@
 package anaydis.sort;
 
+import anaydis.sort.gui.ObservableSorter;
+import anaydis.sort.gui.SorterListener;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -38,10 +40,17 @@ public abstract class AbstractSorter implements Sorter, ObservableSorter {
     protected <T> boolean greater(Comparator<T> c, List<T> list, int i, int j) {
         //Notify listeners
         for (int k = 0; k < listeners.size(); k++) {
-            listeners.get(k).grater(i, j);
+            listeners.get(k).greater(i, j);
         }
 
         return c.compare(list.get(i), list.get(j)) > 0;
+    }
+
+    protected void box(int i, int j) {
+        //Notify listeners
+        for (SorterListener listener : listeners) {
+            listener.box(i, j);
+        }
     }
 
     protected <T> void compExchange(Comparator<T> c, List<T> list, int i, int j) {

@@ -1,5 +1,7 @@
 package anaydis.sort;
 
+import anaydis.sort.gui.SorterListener;
+
 /**
  * User: nschejtman
  * Date: 22/08/13
@@ -10,9 +12,26 @@ public class SorterCounter implements SorterListener {
     private int swaps;
 
     @Override
-    public void grater(int i, int j) {
+    public void greater(int i, int j) {
        comps++;
     }
+
+    @Override
+    public void box(int from, int to) {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public void copy(int from, int to, boolean copyToAux) {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public void equals(int i, int j) {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+
 
     @Override
     public void swap(int i, int j) {

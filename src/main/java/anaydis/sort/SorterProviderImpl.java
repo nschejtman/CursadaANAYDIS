@@ -20,7 +20,11 @@ public class SorterProviderImpl implements SorterProvider {
     public SorterProviderImpl() {
         sorters = new EnumMap<SorterType, Sorter>(SorterType.class);
         addSorter(new InsertionSorter());
-    }
+        addSorter(new BubbleSorter());
+        addSorter(new SelectionSorter());
+        addSorter(new QuickSorter());
+
+            }
 
     private void addSorter(Sorter sorter) {
         sorters.put(sorter.getType(), sorter);
@@ -29,7 +33,11 @@ public class SorterProviderImpl implements SorterProvider {
     @NotNull
     @Override
     public Sorter getSorterForType(@NotNull SorterType type) {
-        return sorters.get(type);
+        final Sorter sorter = sorters.get(type);
+        if(sorter==null){
+            throw new IllegalArgumentException("Sorter for type " + type + " is not yet implemented");
+        }
+        return sorter;
     }
 
     @NotNull

@@ -3,6 +3,7 @@ package anaydis.sort.tester;
 import anaydis.sort.data.DataSetGenerator;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
@@ -23,16 +24,16 @@ public class IntegerDataGenerator implements DataSetGenerator<Integer> {
         }
     }
 
-    private List<Integer> list;
 
-    public IntegerDataGenerator(List<Integer> list){
-        this.list = list;
+
+    public IntegerDataGenerator(){
+       ;
     }
 
     @NotNull
     @Override
     public List<Integer> createAscending(int length) {
-        list.clear();
+        final List<Integer> list = new ArrayList<Integer>(length);
         for(int i=0; i<length; i++){
             list.add(i);
         }
@@ -42,7 +43,7 @@ public class IntegerDataGenerator implements DataSetGenerator<Integer> {
     @NotNull
     @Override
     public List<Integer> createDescending(int length) {
-        list.clear();
+        final List<Integer> list = new ArrayList<Integer>(length);
         for(int i=0; i<length; i++){
             list.add(length-i);
         }
@@ -52,8 +53,8 @@ public class IntegerDataGenerator implements DataSetGenerator<Integer> {
     @NotNull
     @Override
     public List<Integer> createRandom(int length) {
-        list.clear();
-        Random r = new Random();
+        final List<Integer> list = new ArrayList<Integer>(length);
+        final Random r = new Random();
         for(int i = 0; i<length; i++){
             list.add(r.nextInt(length));
         }

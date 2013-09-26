@@ -1,5 +1,8 @@
 package anaydis.sort.animation;
 
+import anaydis.animation.sort.gui.Main;
+import anaydis.sort.SorterProviderImpl;
+
 /**
  * Created with IntelliJ IDEA.
  * User: nicolas
@@ -9,7 +12,7 @@ package anaydis.sort.animation;
  */
 public class AnimationMain {
     public static void main(String[] args) {
-
+        Main.animate(new SorterProviderImpl());
 
     }
 }
