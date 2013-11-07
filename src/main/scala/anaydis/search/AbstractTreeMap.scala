@@ -1,31 +1,41 @@
 package anaydis.search
 
-import scala.collection.immutable.Stack
-import scala.collection.mutable.LinkedList
-import scala.collection.mutable
 
 trait AbstractTreeMap[K, V] extends MyMap[K, V] {
 
-  case class Node(key: K, var value: V, var left: Node = null, var right: Node = null) {
+  case class Node(key: K, var value: V, var left: Node = null, var right: Node = null, var size: Int = 1) {
+
+    //Method to print nodes
     override def toString: String = s"k $key, v $value, l:$left r:$right"
 
+    //Method that returns the value of a node
     def element = value
 
-
-    def size: Int = 1 + {
+    //Method that return the size of a node
+    def doSize: Int = 1 + {
       if (left == null) 0 else left.size
     } + {
       if (right == null) 0 else right.size
     }
 
+    //Method that updates the size of a node
+    def updateSize = size = 1 + nodeSize(left) + nodeSize(right)
+
+    //Method used by the update method to calculate the size
+    def nodeSize(n: Node) = if (n != null) n.size else 0
+
+
+    // Method that returns a node given its index
     def nth(n: Int): Node = {
-      val idx = if(left != null) left.size else 0
+      val idx = if (left != null) left.size else 0
       if (n == idx) this
-      else if (n <= idx && left != null) left.nth(n)
-      else if (n >= idx && right != null) right.nth(n - idx - 1)
+      else if (n < idx && left != null) left.nth(n)
+      else if (n > idx && right != null) right.nth(n - idx - 1)
       else throw new IndexOutOfBoundsException
     }
 
+    //Method that returns the range of nodes from lo to hi index
+    //TODO (improve)
     def range(lo: Int, hi: Int): List[Node] = {
       if (lo > hi) throw new IllegalArgumentException
       val idx = size
