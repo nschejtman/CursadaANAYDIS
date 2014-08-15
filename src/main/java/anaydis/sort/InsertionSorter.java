@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class InsertionSorter extends AbstractSorter {
     public <T> void sort( Comparator<T> c, List<T> list) {
-        int N = list.size();
+        final int N = list.size();
         for (int i = 0; i < N - 1; i++) {
             box(0, i + 1);
             if (greater(c, list, i, i + 1)) {
